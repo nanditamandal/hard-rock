@@ -99,6 +99,7 @@ function getLyrics (artist, title){
  
      })
      .catch( err => {document.querySelector('.text-success').innerHTML ="";
+                     display( "none", "block");
      result.innerHTML = "Lyrics not found ";
      alert(err);
     
