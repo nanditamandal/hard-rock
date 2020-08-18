@@ -9,8 +9,6 @@ document.querySelector(".search-btn").addEventListener('click', (e)=>{
    else{
     console.log("click");
     display("block", "none");
-   // document.querySelector(".single-lyrics").style.display = "none";
-   // document.getElementById("result-div").style.display= "block";
   
     shortLyrics(inputValue);
 
@@ -32,7 +30,7 @@ function shortLyrics(search){
        
           console.log(data);
           randomValue = setRandomValue(15);
-          for (var i=0; i<10; i++){
+          for (let i=0; i<10; i++){
 
               while(previousValue.indexOf(randomValue) != -1){
                 randomValue = setRandomValue(15);
@@ -91,17 +89,17 @@ function getLyrics (artist, title){
         document.querySelector('.text-success').innerHTML = `${artist} - ${title}`;
          const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, '<br>');
          result.innerHTML = lyrics;
-        //  document.querySelector(".single-lyrics").style.display = "block";
-        //  document.getElementById("result-div").style.display= "none";
+       
         display( "none", "block");
         
    
  
      })
      .catch( err => {document.querySelector('.text-success').innerHTML ="";
-                     display( "none", "block");
+                     
      result.innerHTML = "Lyrics not found ";
-     alert(err);
+          alert("Lyrics not found ");
+        display( "none", "block");
     
     } )
      
@@ -109,7 +107,7 @@ function getLyrics (artist, title){
  }
  function audioStop(audio)
  {
-    for(i=0; i<audio.length; i++) audio[i].pause();
+    for(let i=0; i<audio.length; i++) audio[i].pause();
     
  }
  function display(show, hide)
